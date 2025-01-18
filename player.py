@@ -10,6 +10,8 @@ class Player(CircleShape):
         self.rotation = 0
         self.cooldown = 0
         self.current_speed = 0
+
+        # the direction the player moves in, 0 for standstill, 1 for forward, -1 for backward
         self.direction = 0
     
     # in the player class
@@ -37,7 +39,7 @@ class Player(CircleShape):
 
     def move(self, dt):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
-
+        # check if the player should move forward or backward. else decelerate
         if self.direction != 0:
             self.accelerate()
         else:
